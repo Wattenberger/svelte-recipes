@@ -1,0 +1,88 @@
+@import url("https://rsms.me/inter/inter.css");
+@font-face {
+  font-family: "Butler";
+  src: url("Butler-ExtraBold.woff") format("woff");
+}
+@font-face {
+  font-family: "Fira code";
+  src: url("FiraCode-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Fira code";
+  src: url("FiraCode-Bold.woff") format("woff");
+  font-weight: 700;
+}
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  /* font-size: 1.1em; */
+  line-height: 1.6em;
+  --background: #274b55;
+  --background-light: #2e535e;
+  --background-dark: #15323b;
+  --text: #fff;
+  /* --text-accent: #e1dce4; */
+  --text-accent: #d0c0da;
+  --text-light: #a4b8bd;
+  background: var(--background);
+  color: var(--text);
+}
+
+h1 {
+  font-weight: 800;
+}
+h1,
+h2 {
+  font-family: "Butler", serif;
+  margin: 0 0 0.5em 0;
+  /* font-weight: 400; */
+  line-height: 1.2;
+  color: var(--text-accent);
+}
+
+h1 {
+  font-size: 4em;
+  margin-bottom: 0.3em;
+  line-height: 1.2em;
+}
+h2 {
+  font-size: 3em;
+  margin-bottom: 0.3em;
+  line-height: 1.2em;
+}
+
+a {
+  color: inherit;
+}
+
+strong {
+  font-weight: 800;
+  color: white;
+}
+
+a pre,
+p pre {
+  display: inline-block;
+  background: var(--background-dark);
+  padding: 0.2em 0.6em;
+  border-radius: 3px;
+  margin: -0.3em 0;
+  font-family: "Fira code", monospace;
+  color: var(--text-accent);
+  font-size: 0.9em;
+  font-weight: 600;
+}
+em {
+  font-style: italic;
+  color: white;
+}
+
+::selection {
+  background: var(--background-dark);
+}
+
+@media (min-width: 400px) {
+  body {
+    font-size: 1.1em;
+  }
+}

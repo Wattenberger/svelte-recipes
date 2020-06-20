@@ -1,0 +1,9 @@
+{
+  "svelteSortOrder": "scripts-markup-styles",
+  "svelteStrictMode": true,
+  "arrowParens": "avoid",
+  "semi": false,
+  "singleQuote": false,
+  "trailingComma": "all",
+  "quoteProps": "consistent"
+}
