@@ -25,6 +25,7 @@
 
 <script>
   export let component = {};
+  const codeUrlBase = `https://github.com/Wattenberger/svelte-recipes/tree/master/src/components/examples/`;
 </script>
 
 <svelte:head>
@@ -43,12 +44,18 @@
 
   <div class="content">
     <div class="code">
-      <Code fileName="{`${component.name}`}" code="{component.raw}" />
-      {#if component.wrapper}
+      <Code
+        fileName="{component.fileName}"
+        code="{component.codeHighlighted}"
+        raw="{component.code}"
+        link="{[codeUrlBase, component.fileName].join('')}" />
+      {#if component.wrapperCode}
         <p style="{`margin: 3em 0 0`}">Usage example:</p>
         <Code
-          fileName="{`${component.componentName || component.name}Wrapper.svelte`}"
-          code="{component.wrapper}" />
+          link="{[codeUrlBase, component.wrapperName || `${component.name}Wrapper.svelte`].join('')}"
+          fileName="{component.wrapperName || `${component.name}Wrapper.svelte`}"
+          raw="{component.wrapperCode}"
+          code="{component.wrapperCodeHighlighted}" />
       {/if}
     </div>
     <div class="right">
@@ -105,7 +112,8 @@
   }
   .code {
     flex: 0 0 46em;
-    overflow: auto;
+    /* overflow: auto; */
+    overflow: visible;
     font-size: 0.9em;
   }
 

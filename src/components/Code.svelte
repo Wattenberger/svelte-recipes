@@ -1,27 +1,73 @@
 <script>
   import { onMount } from "svelte";
   import Icon from "./Icon.svelte";
+  import Tooltip from "./Tooltip.svelte";
 
   export let language = "js";
   export let code;
+  export let raw;
   export let fileName;
+  export let link;
+  export let canCopy = true;
+
+  let codeElem;
+  let didCopy = false;
+
+  const onCopy = () => {
+    try {
+      navigator.clipboard.writeText(raw || code).then(
+        () => {
+          console.log("success");
+          didCopy = true;
+          setTimeout(() => {
+            didCopy = false;
+          }, 1500);
+        },
+        e => {
+          throw new Error(e);
+        }
+      );
+    } catch (e) {
+      console.log("error when copying code", e);
+    }
+  };
 </script>
 
 <div class="c">
   {#if fileName}
     <div class="file-name">
       <Icon name="file" />
-      {fileName}
+      <div class="name">{fileName}</div>
+      {#if canCopy}
+        <button on:click="{onCopy}">
+          <Tooltip>
+            {didCopy ? '✨ Copied to clipboard! 🎉' : 'Copy to clipboard'}
+          </Tooltip>
+          <Icon name="copy" />
+        </button>
+      {/if}
+      <a href="{link}" class="link" target="_blank" rel="noopener noreferrer">
+        <Tooltip>
+          See on Github
+          <span style="font-size: 0.9em">
+            <Icon name="external" />
+          </span>
+        </Tooltip>
+        <Icon name="code" />
+      </a>
     </div>
   {/if}
   <pre>
-    <code class="language-{language}">
+    <code class="language-{language}" bind:this="{codeElem}">
       {@html code}
     </code>
   </pre>
 </div>
 
 <style>
+  .c {
+    overflow: visible;
+  }
   .c + .c {
     margin-top: 2em;
   }
@@ -38,6 +84,30 @@
   }
   .file-name :global(svg) {
     margin-right: 0.3em;
+  }
+  .name {
+    flex: 1;
+  }
+  a {
+    display: flex;
+    position: relative;
+    padding: 0;
+    height: 1em;
+  }
+  button {
+    position: relative;
+    height: 1em;
+    margin: 0 0.6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    appearance: none;
+    background: none;
+    color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
   }
   pre {
     margin: 0;

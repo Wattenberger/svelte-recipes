@@ -24,7 +24,7 @@
     return new Array(150).fill(0).map((_, i) => {
       const x = (i * 10) / 150;
       const y = Math.random() * height;
-      const r = simplex.noise2D(x, y);
+      const r = Math.max(0, simplex.noise2D(x, y));
       return {
         x: x - r,
         y: y - r,
@@ -64,5 +64,6 @@
     position: absolute;
     top: 0;
     font-style: italic;
+    color: var(--text-light);
   }
 </style>

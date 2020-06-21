@@ -28,9 +28,6 @@ body {
   color: var(--text);
 }
 
-h1 {
-  font-weight: 800;
-}
 h1,
 h2 {
   font-family: "Butler", serif;
@@ -42,8 +39,9 @@ h2 {
 
 h1 {
   font-size: 4em;
-  margin-bottom: 0.3em;
-  line-height: 1.2em;
+  font-weight: 800;
+  line-height: 0.9em;
+  margin-bottom: 0.6em;
 }
 h2 {
   font-size: 3em;
@@ -84,5 +82,11 @@ em {
 @media (min-width: 400px) {
   body {
     font-size: 1.1em;
+  }
+}
+@media (min-width: 1500px) {
+  h1 {
+    font-size: 5.6em;
+    margin-bottom: 0.3em;
   }
 }

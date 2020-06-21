@@ -25,5 +25,6 @@
     position: absolute;
     top: 0;
     font-style: italic;
+    color: var(--text-light);
   }
 </style>

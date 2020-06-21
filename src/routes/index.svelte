@@ -10,6 +10,7 @@
 
 <script>
   export let components;
+  import Swirl from "./../components/Swirl.svelte";
 </script>
 
 <svelte:head>
@@ -59,7 +60,8 @@
       <p>
         I'll usually have a
         <strong>utils.js</strong>
-        file that I throw custom methods into for easy use.
+        file that I throw custom methods into for easy use. Here are some of
+        those methods.
       </p>
     </div>
     <div class="right">
@@ -78,12 +80,27 @@
     </div>
   </section>
 </main>
+<div class="swirl-container">
+  <div class="swirl">
+    <Swirl />
+  </div>
+</div>
 
 <style>
   /* h2 {
     font-weight: 800;
     font-size: 2.2em;
   } */
+  main {
+    /* position: relative; */
+  }
+  p,
+  li,
+  h1,
+  h3 {
+    position: relative;
+    z-index: 10;
+  }
   ul {
     margin: 0 -0.6em;
     padding: 0;
@@ -108,15 +125,16 @@
   .item {
     display: block;
     margin: 0.6em;
-    padding: 0.8em 1.3em;
+    padding: 0.6em 1.6em;
     /* background: var(--text-accent);
     background: var(--background-dark); */
     font-weight: 800;
-    color: var(--background-dark);
+    /* color: var(--background-dark); */
     color: white;
+    background: var(--background);
     text-decoration: none;
     max-width: 20em;
-    border: 1px solid transparent;
+    border: 1px solid var(--background-dark);
     border-radius: 3px;
   }
   .item:focus,
@@ -143,6 +161,23 @@
     border-radius: 1em 1em 0 0; */
     /* color: var(--text-accent); */
     margin: 0.3em 0;
+  }
+  .swirl-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+  }
+  .swirl {
+    position: absolute;
+    top: 40%;
+    left: -10vw;
+    right: -10vw;
+    min-width: 1200px;
+    z-index: 1;
+    transform: translateX(-10vw) rotate(-15deg);
   }
   @media (max-width: 700px) {
     section {
