@@ -6,8 +6,6 @@
   import { tweened } from "./tweened-staggered";
   import move from "./move";
 
-  import Scatterplot from "./Scatterplot.svelte";
-
   const simplex = new SimplexNoise(0);
 
   const height = 8;
