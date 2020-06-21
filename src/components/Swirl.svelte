@@ -1,30 +1,28 @@
 <script>
-  import { line, curveBasis } from "d3-shape";
-  import { tweened } from "./examples/tweened-staggered";
+  import { line, curveBasis } from "d3-shape"
+  import { tweened } from "./examples/tweened-staggered"
 
-  let width = 10;
-  const aspectRatio = 0.2;
-  let height = width * aspectRatio;
-  const curveHeight = 0.6;
+  let width = 10
+  const aspectRatio = 0.2
+  let height = width * aspectRatio
+  const curveHeight = 0.6
 
   const createData = () => {
     const firstRow = new Array(width + 2)
       .fill(0)
-      .map((_, i) => [i, i % 2 ? curveHeight : -curveHeight]);
+      .map((_, i) => [i, i % 2 ? curveHeight : -curveHeight])
     return new Array(height / aspectRatio).fill(0).map((_, i) =>
       line()
         .x(d => d[0])
         .y(d => d[1] + i * aspectRatio)
-        .curve(curveBasis)(firstRow)
-    );
-  };
+        .curve(curveBasis)(firstRow),
+    )
+  }
 
   const lines = tweened(createData(), {
-    duration: 2000
-  });
+    duration: 2000,
+  })
 </script>
-
-<svelte:window on:click="{() => lines.set(createData())}" />
 
 <svg viewBox="{[0, 0, width, height].join(' ')}">
   {#each $lines as d, i}
