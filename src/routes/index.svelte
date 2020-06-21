@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-  <title>Components</title>
+  <title>Svelte Recipes 👩‍🍳</title>
 </svelte:head>
 
 <main>

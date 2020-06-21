@@ -29,7 +29,7 @@
 </script>
 
 <svelte:head>
-  <title>{component.name}</title>
+  <title>Svelte Recipes: {component.name}</title>
 </svelte:head>
 
 <div class="c">
