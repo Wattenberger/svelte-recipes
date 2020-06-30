@@ -24,7 +24,9 @@
     list-style-type: none;
   }
   li {
-    margin: 0.5em 0;
+    position: relative;
+    margin: 1em 0;
+    z-index: 10;
   }
   a {
     display: block;

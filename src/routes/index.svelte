@@ -184,8 +184,7 @@
     transform: translateX(-10vw) rotate(-15deg);
   }
   .more {
-    position: relative;
-    z-index: 10;
+    padding: 9em 0 3em;
   }
 
   @media (max-width: 700px) {
