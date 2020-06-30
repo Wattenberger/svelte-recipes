@@ -46,6 +46,16 @@
     <pre>path</pre>
     <pre>d</pre>
     strings.
+    <br />
+    <br />
+    Find my list of ready-to-go paths in the
+    <a
+      href="https://github.com/Wattenberger/svelte-recipes/blob/master/src/components/examples/icon-paths.js"
+      target="_blank"
+      rel="noopener">
+      icon-paths.js
+    </a>
+    file.
   </div>
 </div>
 
