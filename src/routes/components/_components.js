@@ -2,8 +2,10 @@ import Scatterplot from "!!raw-loader!./../../components/examples/Scatterplot.sv
 import ScatterplotWrapper from "!!raw-loader!./../../components/examples/ScatterplotWrapper.svelte"
 import tweenedStagger from "!!raw-loader!./../../components/examples/tweened-staggered.js"
 import TweenedStaggeredWrapper from "!!raw-loader!./../../components/examples/TweenedStaggeredWrapper.svelte"
-import move from "!!raw-loader!./../../components/examples/move.js"
 import MoveWrapper from "!!raw-loader!./../../components/examples/MoveWrapper.svelte"
+import Icon from "!!raw-loader!./../../components/examples/Icon.svelte"
+import IconWrapper from "!!raw-loader!./../../components/examples/IconWrapper.svelte"
+import move from "!!raw-loader!./../../components/examples/move.js"
 
 import highlightJs from "highlight.js"
 import hljsDefineSvelte from "./../../utils/highlight-svelte"
@@ -16,13 +18,26 @@ const components = [
     fileName: "Scatterplot.svelte",
     type: "component",
     description: "Create a chart with dots that animate when they move.",
-    componentName: "Scatterplot",
+    componentName: "ScatterplotWrapper",
     wrapperName: "ScatterplotWrapper.svelte",
     code: Scatterplot,
     codeHighlighted: highlightJs.highlight("svelte", Scatterplot).value,
     wrapperCode: ScatterplotWrapper,
     wrapperCodeHighlighted: highlightJs.highlight("svelte", ScatterplotWrapper)
       .value,
+  },
+  {
+    name: "Icon",
+    fileName: "Icon.svelte",
+    type: "component",
+    description:
+      "I love using raw svgs for icons - they're super lightweight, always look crisp, and are super flexible. The component has a <b>direction</b> for easy rotations (super useful for arrows), and is easily sized based on font size.",
+    componentName: "IconWrapper",
+    wrapperName: "IconWrapper.svelte",
+    code: Icon,
+    codeHighlighted: highlightJs.highlight("svelte", Icon).value,
+    wrapperCode: IconWrapper,
+    wrapperCodeHighlighted: highlightJs.highlight("svelte", IconWrapper).value,
   },
   {
     name: "tweened-staggered",

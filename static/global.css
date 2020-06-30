@@ -75,6 +75,17 @@ em {
   color: white;
 }
 
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  padding: 0.5em 1em;
+  background: var(--background-dark);
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+}
+
 ::selection {
   background: var(--background-dark);
 }

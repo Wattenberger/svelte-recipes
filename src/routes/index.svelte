@@ -3,14 +3,15 @@
     return this.fetch(`components.json`)
       .then(r => r.json())
       .then(components => {
-        return { components };
-      });
+        return { components }
+      })
   }
 </script>
 
 <script>
-  export let components;
-  import Swirl from "./../components/Swirl.svelte";
+  export let components
+  import Swirl from "./../components/Swirl.svelte"
+  import References from "./../components/References.svelte"
 </script>
 
 <svelte:head>
@@ -80,6 +81,9 @@
     </div>
   </section>
 </main>
+<div class="more">
+  <References />
+</div>
 <div class="swirl-container">
   <div class="swirl">
     <Swirl />
@@ -179,6 +183,11 @@
     z-index: 1;
     transform: translateX(-10vw) rotate(-15deg);
   }
+  .more {
+    position: relative;
+    z-index: 10;
+  }
+
   @media (max-width: 700px) {
     section {
       flex-direction: column;

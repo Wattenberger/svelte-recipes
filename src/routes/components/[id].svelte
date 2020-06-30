@@ -1,31 +1,33 @@
 <script context="module">
-  import ScatterplotWrapper from "./../../components/examples/ScatterplotWrapper.svelte";
-  import TweenedStaggeredWrapper from "./../../components/examples/TweenedStaggeredWrapper.svelte";
-  import MoveWrapper from "./../../components/examples/MoveWrapper.svelte";
-  import Code from "./../../components/Code.svelte";
-  import Icon from "./../../components/Icon.svelte";
+  import ScatterplotWrapper from "./../../components/examples/ScatterplotWrapper.svelte"
+  import TweenedStaggeredWrapper from "./../../components/examples/TweenedStaggeredWrapper.svelte"
+  import MoveWrapper from "./../../components/examples/MoveWrapper.svelte"
+  import IconWrapper from "./../../components/examples/IconWrapper.svelte"
+  import Code from "./../../components/Code.svelte"
+  import Icon from "./../../components/Icon.svelte"
 
   const componentsByName = {
-    Scatterplot: ScatterplotWrapper,
+    ScatterplotWrapper: ScatterplotWrapper,
     TweenedStaggeredWrapper: TweenedStaggeredWrapper,
-    MoveWrapper: MoveWrapper
-  };
+    MoveWrapper: MoveWrapper,
+    IconWrapper: IconWrapper,
+  }
 
   export async function preload({ params, query }) {
-    const res = await this.fetch(`components/${params.id}.json`);
-    const data = await res.json();
+    const res = await this.fetch(`components/${params.id}.json`)
+    const data = await res.json()
 
     if (res.status === 200) {
-      return { component: data };
+      return { component: data }
     } else {
-      this.error(res.status, data.message);
+      this.error(res.status, data.message)
     }
   }
 </script>
 
 <script>
-  export let component = {};
-  const codeUrlBase = `https://github.com/Wattenberger/svelte-recipes/tree/master/src/components/examples/`;
+  export let component = {}
+  const codeUrlBase = `https://github.com/Wattenberger/svelte-recipes/tree/master/src/components/examples/`
 </script>
 
 <svelte:head>
@@ -113,7 +115,9 @@
   .code {
     flex: 0 0 46em;
     /* overflow: auto; */
-    overflow: visible;
+    /* overflow: visible; */
+    /* overflow: hidden; */
+    max-width: 46em;
     font-size: 0.9em;
   }
 

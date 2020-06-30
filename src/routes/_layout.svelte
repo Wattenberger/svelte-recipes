@@ -8,9 +8,7 @@
 
 <footer>
   Made with 💗 by
-  <a href="http://wattenberger.com" target="_blank" rel="noopener noreferrer">
-    Amelia Wattenberger
-  </a>
+  <a href="http://wattenberger.com" target="_blank">Amelia Wattenberger</a>
 </footer>
 
 <style>
