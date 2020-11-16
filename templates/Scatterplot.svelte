@@ -1,9 +1,7 @@
 <script>
   import { spring } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
-  import { extent } from "d3-array";
-  import { interpolateHcl } from "d3-interpolate";
-  import { scaleSqrt, scaleLinear } from "d3-scale";
+  import { extent, interpolateHcl, scaleSqrt, scaleLinear } from "d3";
 
   // utility function for translating elements
   const move = (x, y) => `transform: translate(${x}px, ${y}px`;
@@ -71,14 +69,11 @@
   $: data, mainWidth, updateData();
 </script>
 
-<figure class="c" bind:clientWidth="{width}">
+<figure class="c" bind:clientWidth={width}>
   <svg {width} {height}>
-    <g style="{move(margins.top, margins.left)}">
+    <g style={move(margins.top, margins.left)}>
       {#each $dots as { x, y, r }}
-        <circle
-          style="{move(x, y)}"
-          r="{Math.max(0, r)}"
-          fill="{colorScale(r)}"></circle>
+        <circle style={move(x, y)} r={Math.max(0, r)} fill={colorScale(r)} />
       {/each}
     </g>
   </svg>

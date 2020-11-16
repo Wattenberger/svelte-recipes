@@ -1,103 +1,64 @@
-@import url("https://rsms.me/inter/inter.css");
-@font-face {
-  font-family: "Butler";
-  src: url("Butler-ExtraBold.woff") format("woff");
+html, body {
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
-@font-face {
-  font-family: "Fira code";
-  src: url("FiraCode-Regular.woff") format("woff");
-}
-@font-face {
-  font-family: "Fira code";
-  src: url("FiraCode-Bold.woff") format("woff");
-  font-weight: 700;
-}
+
 body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  /* font-size: 1.1em; */
-  line-height: 1.6em;
-  --background: #274b55;
-  --background-light: #2e535e;
-  --background-dark: #15323b;
-  --text: #fff;
-  /* --text-accent: #e1dce4; */
-  --text-accent: #d0c0da;
-  --text-light: #a4b8bd;
-  background: var(--background);
-  color: var(--text);
-}
-
-h1,
-h2 {
-  font-family: "Butler", serif;
-  margin: 0 0 0.5em 0;
-  /* font-weight: 400; */
-  line-height: 1.2;
-  color: var(--text-accent);
-}
-
-h1 {
-  font-size: 4em;
-  font-weight: 800;
-  line-height: 0.9em;
-  margin-bottom: 0.6em;
-}
-h2 {
-  font-size: 3em;
-  margin-bottom: 0.3em;
-  line-height: 1.2em;
+	color: #333;
+	margin: 0;
+	padding: 8px;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
 a {
-  color: inherit;
+	color: rgb(0,100,200);
+	text-decoration: none;
 }
 
-strong {
-  font-weight: 800;
-  color: white;
+a:hover {
+	text-decoration: underline;
 }
 
-a pre,
-p pre {
-  display: inline-block;
-  background: var(--background-dark);
-  padding: 0.2em 0.6em;
-  border-radius: 3px;
-  margin: -0.3em 0;
-  font-family: "Fira code", monospace;
-  color: var(--text-accent);
-  font-size: 0.9em;
-  font-weight: 600;
+a:visited {
+	color: rgb(0,80,160);
 }
-em {
-  font-style: italic;
-  color: white;
+
+label {
+	display: block;
+}
+
+input, button, select, textarea {
+	font-family: inherit;
+	font-size: inherit;
+	-webkit-padding: 0.4em 0;
+	padding: 0.4em 0.8em;
+	margin: 0 0 0.5em 0;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+input:disabled {
+	color: #ccc;
 }
 
 button {
-  appearance: none;
-  border: none;
-  outline: none;
-  padding: 0.5em 1em;
-  background: var(--background-dark);
-  color: white;
-  font-size: 1em;
-  cursor: pointer;
+	color: #333;
+	background-color: #f4f4f4;
+	outline: none;
 }
 
-::selection {
-  background: var(--background-dark);
+button:disabled {
+	color: #999;
 }
 
-@media (min-width: 400px) {
-  body {
-    font-size: 1.1em;
-  }
+button:not(:disabled):active {
+	background-color: #ddd;
 }
-@media (min-width: 1500px) {
-  h1 {
-    font-size: 5.6em;
-    margin-bottom: 0.3em;
-  }
+
+button:focus {
+	border-color: #666;
 }
