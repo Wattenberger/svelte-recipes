@@ -1,7 +1,8 @@
 import { writable } from "svelte/store";
 import { assign, loop, now } from "svelte/internal";
 import { linear } from "svelte/easing";
-import { interpolate, scaleLinear } from "d3";
+import { interpolate } from "d3-interpolate";
+import { scaleLinear } from "d3-scale";
 
 function get_interpolator(a, b, iDelay = 0, length = 0, delay = 0) {
   if (a === b || a !== a) return () => a;
