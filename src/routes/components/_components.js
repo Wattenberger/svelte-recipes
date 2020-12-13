@@ -1,5 +1,7 @@
 import Scatterplot from "!!raw-loader!./../../components/examples/Scatterplot.svelte"
 import ScatterplotWrapper from "!!raw-loader!./../../components/examples/ScatterplotWrapper.svelte"
+import Force from "!!raw-loader!./../../components/examples/Force.svelte"
+import ForceWrapper from "!!raw-loader!./../../components/examples/ForceWrapper.svelte"
 import tweenedStagger from "!!raw-loader!./../../components/examples/tweened-staggered.js"
 import TweenedStaggeredWrapper from "!!raw-loader!./../../components/examples/TweenedStaggeredWrapper.svelte"
 import MoveWrapper from "!!raw-loader!./../../components/examples/MoveWrapper.svelte"
@@ -13,6 +15,18 @@ import hljsDefineSvelte from "./../../utils/highlight-svelte"
 highlightJs.registerLanguage("svelte", hljsDefineSvelte)
 
 const components = [
+  {
+    name: "Force",
+    fileName: "Force.svelte",
+    type: "component",
+    description: `Use d3 force to move particles around. You can change the forces at any point, more info in the <a href="https://github.com/d3/d3-force">d3 docs</a>.`,
+    componentName: "ForceWrapper",
+    wrapperName: "ForceWrapper.svelte",
+    code: Force,
+    codeHighlighted: highlightJs.highlight("svelte", Force).value,
+    wrapperCode: ForceWrapper,
+    wrapperCodeHighlighted: highlightJs.highlight("svelte", ForceWrapper).value,
+  },
   {
     name: "Scatterplot",
     fileName: "Scatterplot.svelte",
