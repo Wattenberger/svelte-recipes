@@ -35,11 +35,11 @@
     ? [
         geoOrthographic()
           .fitSize([width, width], sphere)
-          .rotate([-60, -20]),
+          .rotate([-75, -20]),
         geoOrthographic()
           .fitSize([width, width], sphere)
           .translate([width / 2, height * 0.7])
-          .rotate([90, -20]),
+          .rotate([70, -20]),
       ]
     : [
         geoEqualEarth()
@@ -135,6 +135,7 @@
       if (
         paths[1] &&
         (Number.isNaN(centroid[0]) ||
+          centroid[0] < width * 0.06 ||
           ["United States of America", "Canada"].includes(name))
       )
         centroid = paths[1].centroid(countryShape)
