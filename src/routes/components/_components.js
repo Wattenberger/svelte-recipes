@@ -1,3 +1,5 @@
+import Map from "!!raw-loader!./../../components/examples/Map.svelte"
+import MapWrapper from "!!raw-loader!./../../components/examples/MapWrapper.svelte"
 import Scatterplot from "!!raw-loader!./../../components/examples/Scatterplot.svelte"
 import ScatterplotWrapper from "!!raw-loader!./../../components/examples/ScatterplotWrapper.svelte"
 import Force from "!!raw-loader!./../../components/examples/Force.svelte"
@@ -16,6 +18,19 @@ highlightJs.registerLanguage("svelte", hljsDefineSvelte)
 
 const components = [
   {
+    name: "World Map",
+    fileName: "Map.svelte",
+    type: "component",
+    description:
+      "Create a world map, with sized & colored bubbles for each country. Check this out on desktop <em>and</em> mobile 😉.",
+    componentName: "MapWrapper",
+    wrapperName: "MapWrapper.svelte",
+    code: Map,
+    codeHighlighted: highlightJs.highlight("svelte", Map).value,
+    wrapperCode: MapWrapper,
+    wrapperCodeHighlighted: highlightJs.highlight("svelte", MapWrapper).value,
+  },
+  {
     name: "Force",
     fileName: "Force.svelte",
     type: "component",
@@ -26,8 +41,7 @@ const components = [
     codeHighlighted: highlightJs.highlight("svelte", Force).value,
     wrapperCode: ForceWrapper,
     wrapperCodeHighlighted: highlightJs.highlight("svelte", ForceWrapper).value,
-  },
-  {
+  },{
     name: "Scatterplot",
     fileName: "Scatterplot.svelte",
     type: "component",

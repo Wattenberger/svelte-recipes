@@ -1,5 +1,6 @@
 <script context="module">
   import ForceWrapper from "./../../components/examples/ForceWrapper.svelte"
+  import MapWrapper from "./../../components/examples/MapWrapper.svelte"
   import ScatterplotWrapper from "./../../components/examples/ScatterplotWrapper.svelte"
   import TweenedStaggeredWrapper from "./../../components/examples/TweenedStaggeredWrapper.svelte"
   import MoveWrapper from "./../../components/examples/MoveWrapper.svelte"
@@ -9,6 +10,7 @@
 
   const componentsByName = {
     ForceWrapper: ForceWrapper,
+    MapWrapper: MapWrapper,
     ScatterplotWrapper: ScatterplotWrapper,
     TweenedStaggeredWrapper: TweenedStaggeredWrapper,
     MoveWrapper: MoveWrapper,
