@@ -1,5 +1,5 @@
 <script>
-  import { extent } from "d3-array"
+  import { extent, max } from "d3-array"
   import { interpolate, interpolateHcl } from "d3-interpolate"
   import { scaleSqrt, scaleLinear } from "d3-scale"
   import {
@@ -48,17 +48,15 @@
       ]
 
   // make me some scales!
-  $: values = Object.values(data)
-  $: maxValue = Math.max(...values.filter(Number.isFinite))
+  $: rScale = scaleSqrt()
+    .domain([0, max(data, rAccessor)])
+    .range([0, width * height * 0.000036])
+    .clamp(true)
+
   $: colorScale = scaleLinear()
     .domain(extent(data, colorAccessor))
     .range(["#274B55", "#f8f8f8"])
     .interpolate(interpolateHcl)
-    .clamp(true)
-
-  $: rScale = scaleSqrt()
-    .domain(extent(data, rAccessor))
-    .range([width * height * 0.00003, 0])
     .clamp(true)
 
   // draw a blank world map
@@ -74,7 +72,6 @@
         path(shape)
       }
       drawPath(sphere)
-      if (!isVertical) ctx.clip()
 
       const fill = color => {
         ctx.fillStyle = color
@@ -95,7 +92,6 @@
         fill("#f8f8f8")
         stroke("#ccc")
       })
-      ctx.restore() // stop clipping
 
       drawPath(sphere)
       stroke("#ccc")

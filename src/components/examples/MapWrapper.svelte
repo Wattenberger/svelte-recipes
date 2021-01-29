@@ -6,7 +6,7 @@
   const createData = () => {
     return countryShapes.map(d => [
       d.properties.geounit,
-      Math.random(),
+      Math.random() < 0.13 ? Math.random() : 0,
       Math.random(),
     ])
   }
@@ -17,8 +17,8 @@
   <Map
     {data}
     nameAccessor="{d => d[0]}"
-    colorAccessor="{d => d[1]}"
-    rAccessor="{d => d[2]}" />
+    rAccessor="{d => d[1]}"
+    colorAccessor="{d => d[2]}" />
 </div>
 <div class="note">Click to update bubble sizes</div>
 <svelte:window
