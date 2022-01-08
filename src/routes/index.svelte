@@ -126,6 +126,10 @@
   .right {
     flex: 2;
   }
+  .right ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(21em, 1fr));
+  }
   .item {
     display: block;
     margin: 0.6em;

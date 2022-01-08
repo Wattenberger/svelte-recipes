@@ -33,7 +33,7 @@
   };
 </script>
 
-<div class="c">
+<div class="code">
   {#if fileName}
     <div class="file-name">
       <Icon name="file" />
@@ -65,10 +65,10 @@
 </div>
 
 <style>
-  .c {
+  .code {
     overflow: visible;
   }
-  .c + .c {
+  .code + .code {
     margin-top: 2em;
   }
   .file-name {
@@ -111,17 +111,18 @@
   }
   pre {
     margin: 0;
+    overflow: auto;
   }
   code {
     --base: #282c34;
     display: block;
-    overflow-x: auto;
+    overflow: auto;
     padding: 0.5em 1.6em;
     color: #f2f2f7;
     background: var(--base);
     background: #0b2830;
     color: white;
-    font-family: "Fira code", monospace;
+    font-family: var(--mono);
     font-size: 0.9em;
   }
 
@@ -153,7 +154,7 @@
   }
   code :global(.hljs-d3) {
     color: #c593ff;
-    font-weight: 700;
+    font-variation-settings: 'wght' 700;
   }
 
   code :global(.hljs-string),
@@ -174,6 +175,8 @@
   code :global(.hljs-template-variable),
   code :global(.hljs-type) {
     color: #ff8d58;
+    font-weight: 700;
+    font-variation-settings: 'wght' 600;
   }
   code :global(.hljs-selector-class),
   code :global(.hljs-selector-attr),
@@ -188,7 +191,7 @@
   code :global(.hljs-meta),
   code :global(.hljs-selector-id),
   code :global(.hljs-title) {
-    color: #6196cc;
+    color: #afcfcd;
   }
 
   code :global(.hljs-emphasis) {

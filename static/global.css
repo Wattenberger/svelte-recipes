@@ -12,6 +12,10 @@
   src: url("FiraCode-Bold.woff") format("woff");
   font-weight: 700;
 }
+@font-face {
+  font-family: "Fira code VF";
+  src: url("FiraCode-VF.woff2") format("woff2");
+}
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
@@ -24,8 +28,14 @@ body {
   /* --text-accent: #e1dce4; */
   --text-accent: #d0c0da;
   --text-light: #a4b8bd;
+  --mono: "Fira code", monospace;
   background: var(--background);
   color: var(--text);
+}
+@supports (font-variation-settings: normal) {
+  body {
+    --mono: "Fira code VF", monospace;
+  }
 }
 
 h1,
@@ -65,7 +75,7 @@ p pre {
   padding: 0.2em 0.6em;
   border-radius: 3px;
   margin: -0.3em 0;
-  font-family: "Fira code", monospace;
+  font-family: var(--mono);
   color: var(--text-accent);
   font-size: 0.9em;
   font-weight: 600;

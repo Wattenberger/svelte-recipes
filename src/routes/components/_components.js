@@ -2,6 +2,8 @@ import Map from "!!raw-loader!./../../components/examples/Map.svelte"
 import MapWrapper from "!!raw-loader!./../../components/examples/MapWrapper.svelte"
 import Scatterplot from "!!raw-loader!./../../components/examples/Scatterplot.svelte"
 import ScatterplotWrapper from "!!raw-loader!./../../components/examples/ScatterplotWrapper.svelte"
+import Spiral from "!!raw-loader!./../../components/examples/Spiral.svelte"
+import SpiralWrapper from "!!raw-loader!./../../components/examples/SpiralWrapper.svelte"
 import Force from "!!raw-loader!./../../components/examples/Force.svelte"
 import ForceWrapper from "!!raw-loader!./../../components/examples/ForceWrapper.svelte"
 import tweenedStagger from "!!raw-loader!./../../components/examples/tweened-staggered.js"
@@ -41,7 +43,7 @@ const components = [
     codeHighlighted: highlightJs.highlight("svelte", Force).value,
     wrapperCode: ForceWrapper,
     wrapperCodeHighlighted: highlightJs.highlight("svelte", ForceWrapper).value,
-  },{
+  }, {
     name: "Scatterplot",
     fileName: "Scatterplot.svelte",
     type: "component",
@@ -53,6 +55,20 @@ const components = [
     wrapperCode: ScatterplotWrapper,
     wrapperCodeHighlighted: highlightJs.highlight("svelte", ScatterplotWrapper)
       .value,
+  }, {
+    name: "Spiral",
+    fileName: "Spiral.svelte",
+    type: "component",
+    description: "Create a chart that spirals out from the center — great for showing yearly trends, not great for accurate comparisons. Inspired by <a href='https://www.nytimes.com/2022/01/06/opinion/omicron-covid-us.html'>this NYTimes chart</a> from Gus Wezerek and Sara Chodosh.",
+    componentName: "SpiralWrapper",
+    wrapperName: "SpiralWrapper.svelte",
+    code: Spiral,
+    codeHighlighted: highlightJs.highlight("svelte", Spiral).value,
+    wrapperCode: SpiralWrapper,
+    wrapperCodeHighlighted: highlightJs.highlight("svelte", SpiralWrapper)
+      .value,
+    containerStyles: "background: #fff; color: #000",
+    layout: "large"
   },
   {
     name: "Icon",

@@ -2,6 +2,7 @@
   import ForceWrapper from "./../../components/examples/ForceWrapper.svelte"
   import MapWrapper from "./../../components/examples/MapWrapper.svelte"
   import ScatterplotWrapper from "./../../components/examples/ScatterplotWrapper.svelte"
+  import SpiralWrapper from "./../../components/examples/SpiralWrapper.svelte"
   import TweenedStaggeredWrapper from "./../../components/examples/TweenedStaggeredWrapper.svelte"
   import MoveWrapper from "./../../components/examples/MoveWrapper.svelte"
   import IconWrapper from "./../../components/examples/IconWrapper.svelte"
@@ -12,6 +13,7 @@
     ForceWrapper: ForceWrapper,
     MapWrapper: MapWrapper,
     ScatterplotWrapper: ScatterplotWrapper,
+    SpiralWrapper: SpiralWrapper,
     TweenedStaggeredWrapper: TweenedStaggeredWrapper,
     MoveWrapper: MoveWrapper,
     IconWrapper: IconWrapper,
@@ -48,7 +50,7 @@
     {@html component.description}
   </p>
 
-  <div class="content">
+  <div class="content content--{component.layout}">
     <div class="code">
       <Code
         fileName="{component.fileName}"
@@ -56,16 +58,18 @@
         raw="{component.code}"
         link="{[codeUrlBase, component.fileName].join('')}" />
       {#if component.wrapperCode}
-        <p style="{`margin: 3em 0 0`}">Usage example:</p>
-        <Code
-          link="{[codeUrlBase, component.wrapperName || `${component.name}Wrapper.svelte`].join('')}"
-          fileName="{component.wrapperName || `${component.name}Wrapper.svelte`}"
-          raw="{component.wrapperCode}"
-          code="{component.wrapperCodeHighlighted}" />
+        <div>
+          <p style="{`margin: 3em 0 0`}">Usage example:</p>
+          <Code
+            link="{[codeUrlBase, component.wrapperName || `${component.name}Wrapper.svelte`].join('')}"
+            fileName="{component.wrapperName || `${component.name}Wrapper.svelte`}"
+            raw="{component.wrapperCode}"
+            code="{component.wrapperCodeHighlighted}" />
+        </div>
       {/if}
     </div>
     <div class="right">
-      <div class="example">
+      <div class="example" style={component.containerStyles ||""}>
         {#if component.componentName}
           <svelte:component
             this="{componentsByName[component.componentName]}" />
@@ -102,6 +106,33 @@
   .content {
     display: flex;
     max-width: 100%;
+  }
+  .content--large {
+    flex-direction: column;
+    width: 100%;
+  }
+  .content--large > .code {
+    width: 100%;
+    order: 2;
+    margin-top: 3em;
+    max-width: 100%;
+    margin-left: 0;
+  }
+  @media (min-width: 1080px) {
+
+  .content--large > .code {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 2em;
+    max-width: calc(100% - 2em);
+  }
+
+  }
+  .content--large > .right {
+    top: auto;
+    width: 100%;
+    position: relative;
+    padding: 0;
   }
   .right {
     position: sticky;
