@@ -73,7 +73,7 @@
       y: y - height / 2
     };
   });
-  $: years = timeYear.range(timeYear.offset(timeDomain[0], -1), timeDomain[1])
+  $: years = timeYear.range(timeYear.floor(timeDomain[0]), timeDomain[1])
       .map((year) => {
         const r = yearRadiusScale(year);
         const { x, y } = getPositionFromDistanceAndAngle(r, -360 / 4);
@@ -192,6 +192,7 @@
     letter-spacing: 0.1em;
     line-height: 1.2em;
     color: #999;
+		max-width: 24em;
   }
   .legend__ticks {
     display: flex;

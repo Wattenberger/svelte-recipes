@@ -43,7 +43,8 @@
     >
     <span slot="legend-title">
       New COVID-19 cases
-      <br />per 1M people in the USA
+      <br />per 1M people in
+      <br />{countryNamesMap[country] || country}
       <br /><span style="opacity: 0.6">(smoothed across 7-days)</span>
     </span>
     </Spiral>
