@@ -48,7 +48,7 @@
   $: yearRadiusScale = scaleLinear()
     .domain(timeDomain)
     .range([height * 0.21, height * 0.41]);
-  $: strokeWidthScale = scaleLinear().domain(timeDomain).range([0.5, 0.7]);
+  $: strokeWidthScale = scaleLinear().domain(timeDomain).range([0.3, 0.65]);
   $: angleScale = scaleLinear().domain([0, 365]).range([0, 360]);
   const getPositionFromDistanceAndAngle = (distance, angle) => {
     const x = distance * Math.cos((angle * Math.PI) / 180);
@@ -104,7 +104,7 @@
               angleScale(progressInYearAccessor(d)) - 360 / 4
             ) + `rotate(${angleScale(progressInYearAccessor(d))})`}
 					>
-					<title>{formatDate(timeAccessor(d))}: {metricAccessor(d)}: {angleScale(progressInYearAccessor(d))}</title>
+					<title>{formatDate(timeAccessor(d))}: {metricAccessor(d)}</title>
 					</path>
         {/each}
     </svg>
