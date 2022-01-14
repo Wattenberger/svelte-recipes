@@ -13,10 +13,12 @@
 
   const progressInYearAccessor = (d) => {
     const date = timeAccessor(d);
-    return timeDay.count(date, timeYear.floor(date));
+    console.log('date',date, timeDay.count(timeYear.floor(date), date));
+
+    return timeDay.count(timeYear.floor(date), date);
   };
   const formatNumber = format(',.1s');
-  const formatDate = timeFormat('%b %Y');
+  const formatDate = timeFormat('%b %-d, %Y');
 
   let width = 100;
   $: height = width
@@ -47,7 +49,7 @@
     .domain(timeDomain)
     .range([height * 0.21, height * 0.41]);
   $: strokeWidthScale = scaleLinear().domain(timeDomain).range([0.5, 0.7]);
-  $: angleScale = scaleLinear().domain([360, 0]).range([0, 360]);
+  $: angleScale = scaleLinear().domain([0, 365]).range([0, 360]);
   const getPositionFromDistanceAndAngle = (distance, angle) => {
     const x = distance * Math.cos((angle * Math.PI) / 180);
     const y = distance * Math.sin((angle * Math.PI) / 180);
@@ -91,7 +93,7 @@
         {#each data || [] as d,i (d.date)}
           <path
             class="transition"
-            in:fade={{delay: i * 6}}
+            in:fade={{delay: i * 3}}
             d={getPathForValue(metricAccessor(d))}
             r={scaleScale(metricAccessor(d))}
             stroke={colorScale(metricAccessor(d))}
@@ -102,7 +104,7 @@
               angleScale(progressInYearAccessor(d)) - 360 / 4
             ) + `rotate(${angleScale(progressInYearAccessor(d))})`}
 					>
-					<title>{formatDate(timeAccessor(d))}: {metricAccessor(d)}</title>
+					<title>{formatDate(timeAccessor(d))}: {metricAccessor(d)}: {angleScale(progressInYearAccessor(d))}</title>
 					</path>
         {/each}
     </svg>

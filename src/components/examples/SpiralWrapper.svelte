@@ -11,10 +11,8 @@
   let isLoading = true
   let countries = [];
   let country = 'USA';
-  console.log('load')
-  const getData = async () => {
-    console.log('getData')
 
+  const getData = async () => {
     const res = await csv(source);
     allData = res
     isLoading = false
